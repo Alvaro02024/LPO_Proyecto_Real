@@ -26,10 +26,10 @@ namespace Sview {
 			//
 		}
 
-		b_operacion_ImprimirFigura_Seleccion(int codigoImpresion, int codigoUsuario)
+		b_operacion_ImprimirFigura_Seleccion(figuraCorte^ Impresion, int codigoUsuario)
 		{
 			InitializeComponent();
-			this->codigoImpresion = codigoImpresion;
+			this->Impresion = Impresion;
 			this->codigoUsuario = codigoUsuario;
 			//
 			//TODO: Add the constructor code here
@@ -60,7 +60,7 @@ namespace Sview {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
-	private: int codigoImpresion;
+	private: figuraCorte^ Impresion;
 	private:int codigoUsuario;
 
 	private:
@@ -209,10 +209,19 @@ namespace Sview {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Botón Confirmar
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; 
-		codigoImpresion = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		int codigoImpresion = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 		figuraController^ figContr = gcnew figuraController();
 		figuraCorte^ FG = figContr->buscar1FiguraxCodigo(codigoImpresion);
-		String^ autor = FG->getNombreAutor();
+		this->Impresion->setCodigo(codigoImpresion);
+		this->Impresion->setNombreAutor(FG->getNombreAutor());
+		String^ autor = this->Impresion->getNombreAutor();
+		this->Impresion->setNombreDiseño(FG->getNombreDiseño());
+		this->Impresion->setFechaCreacion(FG->getFechaCreacion());
+		this->Impresion->setListCorteCirculo(FG->getListCorteCirculo());
+		this->Impresion->setListCorteLinea(FG->getListCorteLinea());
+		this->Impresion->setObjMaterial(FG->getObjMaterial());
+		
+
 		usuarioController^ usuCOntr = gcnew usuarioController();
 		usuario^ uregist = usuCOntr->buscarUsuarioxCodigo(codigoUsuario);
 		String^ autorComp = uregist->getUser();

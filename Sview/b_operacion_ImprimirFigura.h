@@ -550,10 +550,12 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Botón buscar
-	b_operacion_ImprimirFigura_Seleccion^ seleccionarVentana = gcnew b_operacion_ImprimirFigura_Seleccion(codigoImpresion, codigoUsuario);
+	figuraCorte^ objFiguraCCorte = gcnew figuraCorte();
+
+	b_operacion_ImprimirFigura_Seleccion^ seleccionarVentana = gcnew b_operacion_ImprimirFigura_Seleccion(objFiguraCCorte, codigoUsuario);
 	seleccionarVentana->ShowDialog();
 	figuraController^ fgContorller = gcnew figuraController();
-	figuraCorte^ objFC = fgContorller->buscar1FiguraxCodigo(codigoImpresion);
+	figuraCorte^ objFC = fgContorller->buscar1FiguraxCodigo(objFiguraCCorte->getCodigo());
 	this->textBox8->Text = Convert::ToString(objFC->getCodigo());
 	this->textBox9->Text = objFC->getNombreAutor();
 	this->textBox10->Text = objFC->getNombreDiseño();;
