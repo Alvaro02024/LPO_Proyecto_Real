@@ -6,12 +6,13 @@ impresionFC::impresionFC() {
 
 }
 
-impresionFC::impresionFC(int codigo, String^ nombreImpresion, String^ fechaImpresion, String^ autor, String^ tamañoMinMaterial) {
+impresionFC::impresionFC(int codigo, String^ nombreImpresion, String^ fechaImpresion, String^ autor, String^ tamañoMinMaterial, figuraCorte^ objFiguraCorte) {
     this->codigo = codigo;
     this->nombreImpresion = nombreImpresion;
     this->fechaImpresion = fechaImpresion;
     this->autor = autor;
     this->tamañoMinMaterial = tamañoMinMaterial;
+    this->objFiguraCorte = objFiguraCorte;
 }
 
 int impresionFC::getCodigo() {
@@ -52,4 +53,11 @@ String^ impresionFC::getTamañoMinMaterial() {
 
 void impresionFC::setTamañoMinMaterial(String^ tamañoMinMaterial) {
     this->tamañoMinMaterial = tamañoMinMaterial;
+}
+
+figuraCorte^ impresionFC::getObjFiguraCorte() {
+    return this->objFiguraCorte;
+}
+void impresionFC::setObjFiguraCorte(figuraCorte^ objFiguraCorte) {
+    this->objFiguraCorte = objFiguraCorte;
 }

@@ -122,6 +122,7 @@
     <ClInclude Include="corteCirculoController.h" />
     <ClInclude Include="corteLineaController.h" />
     <ClInclude Include="figuraController.h" />
+    <ClInclude Include="impresionController.h" />
     <ClInclude Include="licenciaController.h" />
     <ClInclude Include="materialController.h" />
     <ClInclude Include="posicionController.h" />
@@ -133,6 +134,7 @@
     <ClCompile Include="corteCirculoController.cpp" />
     <ClCompile Include="corteLineaController.cpp" />
     <ClCompile Include="figuraController.cpp" />
+    <ClCompile Include="impresionController.cpp" />
     <ClCompile Include="licenciaController.cpp" />
     <ClCompile Include="materialController.cpp" />
     <ClCompile Include="posicionController.cpp" />
