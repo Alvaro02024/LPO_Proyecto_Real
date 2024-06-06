@@ -210,14 +210,25 @@ namespace Sview {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Botón confirmar
-		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque deseo el índice de la única fila que he seleccionado*/
-		int codigoFig = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-		if (Convert::ToString(codigoFig) == "") {
-			MessageBox::Show("Seleccione una figura de corte");
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
+		int codigoImpresion = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		if (Convert::ToString(codigoImpresion) == "") {
+			MessageBox::Show("Seleccione una figura para continuar");
 		}
-		else
-		{
+		else {
+			figuraController^ figContr = gcnew figuraController();
+			figuraCorte^ FG = figContr->buscar1FiguraxCodigo(codigoImpresion);
+			this->codigoFig->setCodigo(codigoImpresion);
+			this->codigoFig->setNombreAutor(FG->getNombreAutor());
+			String^ autor = this->codigoFig->getNombreAutor();
+			this->codigoFig->setNombreDiseño(FG->getNombreDiseño());
+			this->codigoFig->setFechaCreacion(FG->getFechaCreacion());
+			this->codigoFig->setListCorteCirculo(FG->getListCorteCirculo());
+			this->codigoFig->setListCorteLinea(FG->getListCorteLinea());
+			this->codigoFig->setObjMaterial(FG->getObjMaterial());
+
 			this->Close();
+			
 		}
 		
 	}

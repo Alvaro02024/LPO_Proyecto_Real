@@ -210,27 +210,33 @@ namespace Sview {
 		//Botón Confirmar
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; 
 		int codigoImpresion = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
-		figuraController^ figContr = gcnew figuraController();
-		figuraCorte^ FG = figContr->buscar1FiguraxCodigo(codigoImpresion);
-		this->Impresion->setCodigo(codigoImpresion);
-		this->Impresion->setNombreAutor(FG->getNombreAutor());
-		String^ autor = this->Impresion->getNombreAutor();
-		this->Impresion->setNombreDiseño(FG->getNombreDiseño());
-		this->Impresion->setFechaCreacion(FG->getFechaCreacion());
-		this->Impresion->setListCorteCirculo(FG->getListCorteCirculo());
-		this->Impresion->setListCorteLinea(FG->getListCorteLinea());
-		this->Impresion->setObjMaterial(FG->getObjMaterial());
-		
-
-		usuarioController^ usuCOntr = gcnew usuarioController();
-		usuario^ uregist = usuCOntr->buscarUsuarioxCodigo(codigoUsuario);
-		String^ autorComp = uregist->getUser();
-		if (autor != autorComp) {
-			MessageBox::Show("No puede imprimir figuras realizada por otros usuarios");
+		if (Convert::ToString(codigoImpresion) == "") {
+			MessageBox::Show("Seleccione una figura para continuar");
 		}
 		else {
-			this->Close();
+			figuraController^ figContr = gcnew figuraController();
+			figuraCorte^ FG = figContr->buscar1FiguraxCodigo(codigoImpresion);
+			this->Impresion->setCodigo(codigoImpresion);
+			this->Impresion->setNombreAutor(FG->getNombreAutor());
+			String^ autor = this->Impresion->getNombreAutor();
+			this->Impresion->setNombreDiseño(FG->getNombreDiseño());
+			this->Impresion->setFechaCreacion(FG->getFechaCreacion());
+			this->Impresion->setListCorteCirculo(FG->getListCorteCirculo());
+			this->Impresion->setListCorteLinea(FG->getListCorteLinea());
+			this->Impresion->setObjMaterial(FG->getObjMaterial());
+
+
+			usuarioController^ usuCOntr = gcnew usuarioController();
+			usuario^ uregist = usuCOntr->buscarUsuarioxCodigo(codigoUsuario);
+			String^ autorComp = uregist->getUser();
+			if (autor != autorComp) {
+				MessageBox::Show("No puede imprimir figuras realizada por otros usuarios");
+			}
+			else {
+				this->Close();
+			}
 		}
+		
 		
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
