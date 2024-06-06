@@ -26,7 +26,7 @@ namespace Sview {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-		a_operacion_ImprimirFigura_Seleccion(int codigoFig)
+		a_operacion_ImprimirFigura_Seleccion(figuraCorte^ codigoFig)
 		{
 			InitializeComponent();
 			this->codigoFig = codigoFig;
@@ -47,7 +47,7 @@ namespace Sview {
 			}
 		}
 	private: System::Windows::Forms::Button^ button1;
-	private: int codigoFig;
+	private: figuraCorte^ codigoFig;
 	protected:
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::GroupBox^ groupBox1;

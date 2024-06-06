@@ -260,6 +260,9 @@
     <EmbeddedResource Include="a_opciones.resx">
       <DependentUpon>a_opciones.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="a_operacion_ImprimirFigura.resx">
+      <DependentUpon>a_operacion_ImprimirFigura.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="a_operacion_ImprimirFigura_Seleccion.resx">
       <DependentUpon>a_operacion_ImprimirFigura_Seleccion.h</DependentUpon>
     </EmbeddedResource>

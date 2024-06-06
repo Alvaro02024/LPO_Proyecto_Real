@@ -219,6 +219,8 @@ namespace Sview {
 	}
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { //impresion FC
+		a_operacion_ImprimirFigura^ ventaNEW = gcnew a_operacion_ImprimirFigura();
+		ventaNEW->ShowDialog();
 
 	}
 

@@ -323,6 +323,7 @@ namespace Sview {
 			// 
 			// textBox4
 			// 
+			this->textBox4->Enabled = false;
 			this->textBox4->Location = System::Drawing::Point(156, 133);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 20);
@@ -330,6 +331,7 @@ namespace Sview {
 			// 
 			// textBox3
 			// 
+			this->textBox3->Enabled = false;
 			this->textBox3->Location = System::Drawing::Point(156, 100);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 20);
@@ -504,6 +506,7 @@ namespace Sview {
 			this->Controls->Add(this->button1);
 			this->Name = L"b_operacion_ImprimirFigura";
 			this->Text = L"b_operacion_ImprimirFigura";
+			this->Load += gcnew System::EventHandler(this, &b_operacion_ImprimirFigura::b_operacion_ImprimirFigura_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
@@ -529,8 +532,8 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 	//Botón limpiar
 	this->textBox1->Clear(); //(Y)
 	this->textBox2->Clear(); //nombre
-	this->textBox3->Clear(); //fecah
-	this->textBox4->Clear(); //autor
+	//this->textBox3->Clear(); //fecah
+	//this->textBox4->Clear(); //autor
 	this->textBox5->Clear(); // (Z)
 	this->textBox6->Clear(); //(X)
 	this->textBox7->Clear(); //Codigo
@@ -576,6 +579,15 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 
 
+}
+private: System::Void b_operacion_ImprimirFigura_Load(System::Object^ sender, System::EventArgs^ e) {
+	//CARGA
+	usuarioController^ userController = gcnew usuarioController();
+	usuario^ user = userController->buscarUsuarioxCodigo(codigoUsuario);
+	this->textBox4->Text = user->getUser();
+	DateTime Hoy = DateTime::Now;
+	String^ hoyFormato = Hoy.ToString("dd//MM//yyyy");
+		this->textBox3->Text = hoyFormato;
 }
 };
 }
