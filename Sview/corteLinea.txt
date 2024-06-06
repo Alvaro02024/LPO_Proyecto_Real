@@ -1,0 +1,5 @@
+51;Linea
+52;Cuadrado
+53;Triángulo
+55;LetraA
+58;Cubo

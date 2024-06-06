@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{A83CF24F-2EEC-44E3-9E6B-916BA104B1A9}</ProjectGuid>
+    <EnableManagedPackageReferenceSupport>true</EnableManagedPackageReferenceSupport>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>Sview</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="a_historial.cpp" />
+    <ClCompile Include="a_mantenimiento_Codigo.cpp" />
+    <ClCompile Include="a_mantenimiento_Codigo_editar.cpp" />
+    <ClCompile Include="a_mantenimiento_Codigo_nuevo.cpp" />
+    <ClCompile Include="a_mantenimiento_Posicion.cpp" />
+    <ClCompile Include="a_mantenimiento_Posicion_editar.cpp" />
+    <ClCompile Include="a_mantenimiento_Posicion_nuevo.cpp" />
+    <ClCompile Include="a_mantenimiento_Usuario.cpp" />
+    <ClCompile Include="a_mantenimiento_Usuario_editar.cpp" />
+    <ClCompile Include="a_mantenimiento_Usuario_nuevo.cpp" />
+    <ClCompile Include="a_opciones.cpp" />
+    <ClCompile Include="a_reporte_UsosxUsuario.cpp" />
+    <ClCompile Include="b_mantenimiento_Codigo.cpp" />
+    <ClCompile Include="b_mantenimiento_Codigo_editar.cpp" />
+    <ClCompile Include="b_mantenimiento_Codigo_nuevo.cpp" />
+    <ClCompile Include="b_opciones.cpp" />
+    <ClCompile Include="b_reporte_UsosxDia.cpp" />
+    <ClCompile Include="c_logeo.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scontroller\Scontroller.vcxproj">
+      <Project>{c7f070a3-5bff-460d-858d-9ba571f8d8a6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Smodel\Smodel.vcxproj">
+      <Project>{6770f53b-8ee3-4213-a6ac-eedb242ecdac}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="a_historial.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Codigo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Codigo_editar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Codigo_nuevo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Posicion.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Posicion_editar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Posicion_nuevo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Usuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Usuario_editar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_mantenimiento_Usuario_nuevo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_opciones.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_reporte_UsosxUsuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="b_mantenimiento_Codigo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="b_mantenimiento_Codigo_editar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="b_mantenimiento_Codigo_nuevo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="b_opciones.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="b_reporte_UsosxDia.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="c_logeo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="a_historial.resx">
+      <DependentUpon>a_historial.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Codigo.resx">
+      <DependentUpon>a_mantenimiento_Codigo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Codigo_editar.resx">
+      <DependentUpon>a_mantenimiento_Codigo_editar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Codigo_nuevo.resx">
+      <DependentUpon>a_mantenimiento_Codigo_nuevo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Posicion.resx">
+      <DependentUpon>a_mantenimiento_Posicion.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Posicion_editar.resx">
+      <DependentUpon>a_mantenimiento_Posicion_editar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Posicion_nuevo.resx">
+      <DependentUpon>a_mantenimiento_Posicion_nuevo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Usuario.resx">
+      <DependentUpon>a_mantenimiento_Usuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Usuario_editar.resx">
+      <DependentUpon>a_mantenimiento_Usuario_editar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_mantenimiento_Usuario_nuevo.resx">
+      <DependentUpon>a_mantenimiento_Usuario_nuevo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_opciones.resx">
+      <DependentUpon>a_opciones.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_reporte_UsosxUsuario.resx">
+      <DependentUpon>a_reporte_UsosxUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="b_mantenimiento_Codigo.resx">
+      <DependentUpon>b_mantenimiento_Codigo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="b_mantenimiento_Codigo_editar.resx">
+      <DependentUpon>b_mantenimiento_Codigo_editar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="b_mantenimiento_Codigo_nuevo.resx">
+      <DependentUpon>b_mantenimiento_Codigo_nuevo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="b_opciones.resx">
+      <DependentUpon>b_opciones.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="c_logeo.resx">
+      <DependentUpon>c_logeo.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

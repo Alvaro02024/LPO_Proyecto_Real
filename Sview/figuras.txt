@@ -1,0 +1,5 @@
+9001;Linea;aaa;madera;23/07/2022
+9002;Cuadrado;bbb;madera;21/09/2022
+9003;Triángulo;ccc;acero;28/01/2023
+9005;LetraA;aaa;madera;16/10/2022
+9008;Cubo;ddd;acero;17/10/2022
