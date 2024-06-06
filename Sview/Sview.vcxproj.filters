@@ -84,6 +84,9 @@
     <ClCompile Include="a_operacion_ImprimirFigura_Seleccion.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="b_operacion_ImprimirFigura_Seleccion.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="c_logeo.h">
@@ -150,6 +153,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="a_operacion_ImprimirFigura_Seleccion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="b_operacion_ImprimirFigura_Seleccion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

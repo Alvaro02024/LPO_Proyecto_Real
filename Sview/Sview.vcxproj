@@ -134,6 +134,7 @@
     <ClCompile Include="b_mantenimiento_Codigo_nuevo.cpp" />
     <ClCompile Include="b_opciones.cpp" />
     <ClCompile Include="b_operacion_ImprimirFigura.cpp" />
+    <ClCompile Include="b_operacion_ImprimirFigura_Seleccion.cpp" />
     <ClCompile Include="b_reporte_UsosxDia.cpp" />
     <ClCompile Include="c_logeo.cpp" />
     <ClCompile Include="main.cpp" />
@@ -215,6 +216,9 @@
     <ClInclude Include="b_operacion_ImprimirFigura.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="b_operacion_ImprimirFigura_Seleccion.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="b_reporte_UsosxDia.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="b_operacion_ImprimirFigura.resx">
       <DependentUpon>b_operacion_ImprimirFigura.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="b_operacion_ImprimirFigura_Seleccion.resx">
+      <DependentUpon>b_operacion_ImprimirFigura_Seleccion.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="c_logeo.resx">
       <DependentUpon>c_logeo.h</DependentUpon>

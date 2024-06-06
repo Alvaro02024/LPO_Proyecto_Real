@@ -1,5 +1,5 @@
 #pragma once
-#include "a_operacion_ImprimirFigura_Seleccion.h"
+#include "b_operacion_ImprimirFigura_Seleccion.h"
 
 namespace Sview {
 
@@ -550,7 +550,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Botón buscar
-	a_operacion_ImprimirFigura_Seleccion^ seleccionarVentana = gcnew a_operacion_ImprimirFigura_Seleccion(codigoImpresion);
+	b_operacion_ImprimirFigura_Seleccion^ seleccionarVentana = gcnew b_operacion_ImprimirFigura_Seleccion(codigoImpresion, codigoUsuario);
 	seleccionarVentana->ShowDialog();
 	figuraController^ fgContorller = gcnew figuraController();
 	figuraCorte^ objFC = fgContorller->buscar1FiguraxCodigo(codigoImpresion);

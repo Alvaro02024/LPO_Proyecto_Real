@@ -217,7 +217,8 @@ namespace Sview {
 			MessageBox::Show("Su licencia no permite más usos de la máquina por favor revise la cuenta asociada al correo: \n" + correo);
 		}
 		else {
-			b_operacion_ImprimirFigura^ ventanImpresion = gcnew b_operacion_ImprimirFigura(0, codigoUsuario);
+			int codigoImpresion;
+			b_operacion_ImprimirFigura^ ventanImpresion = gcnew b_operacion_ImprimirFigura(codigoImpresion, codigoUsuario);
 			ventanImpresion->ShowDialog();
 
 		}
