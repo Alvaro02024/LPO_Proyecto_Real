@@ -125,11 +125,15 @@
     <ClCompile Include="a_mantenimiento_Usuario_editar.cpp" />
     <ClCompile Include="a_mantenimiento_Usuario_nuevo.cpp" />
     <ClCompile Include="a_opciones.cpp" />
+    <ClCompile Include="a_operacion_ImprimirFigura.cpp" />
+    <ClCompile Include="a_operacion_ImprimirFigura_Seleccion.cpp" />
+    <ClCompile Include="a_operacion_ImprimirManual.cpp" />
     <ClCompile Include="a_reporte_UsosxUsuario.cpp" />
     <ClCompile Include="b_mantenimiento_Codigo.cpp" />
     <ClCompile Include="b_mantenimiento_Codigo_editar.cpp" />
     <ClCompile Include="b_mantenimiento_Codigo_nuevo.cpp" />
     <ClCompile Include="b_opciones.cpp" />
+    <ClCompile Include="b_operacion_ImprimirFigura.cpp" />
     <ClCompile Include="b_reporte_UsosxDia.cpp" />
     <ClCompile Include="c_logeo.cpp" />
     <ClCompile Include="main.cpp" />
@@ -184,6 +188,15 @@
     <ClInclude Include="a_opciones.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="a_operacion_ImprimirFigura.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_operacion_ImprimirFigura_Seleccion.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="a_operacion_ImprimirManual.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="a_reporte_UsosxUsuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -197,6 +210,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="b_opciones.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="b_operacion_ImprimirFigura.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="b_reporte_UsosxDia.h">
@@ -240,6 +256,9 @@
     <EmbeddedResource Include="a_opciones.resx">
       <DependentUpon>a_opciones.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="a_operacion_ImprimirFigura_Seleccion.resx">
+      <DependentUpon>a_operacion_ImprimirFigura_Seleccion.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="a_reporte_UsosxUsuario.resx">
       <DependentUpon>a_reporte_UsosxUsuario.h</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="b_opciones.resx">
       <DependentUpon>b_opciones.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="b_operacion_ImprimirFigura.resx">
+      <DependentUpon>b_operacion_ImprimirFigura.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="c_logeo.resx">
       <DependentUpon>c_logeo.h</DependentUpon>

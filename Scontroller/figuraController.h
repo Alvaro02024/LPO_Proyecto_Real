@@ -16,5 +16,6 @@ namespace Scontroller {
 		void escribirArchivo(List<figuraCorte^>^ lista_escribir);
 		void eliminarFigura(int codigo);
 		void agregarNuevaFiguraCorte(int b_codigo, String^ b_diseño, String^ b_autor, String^ b_fecha, material^ b_mat, List<corteLinea^>^ cl, List<corteCirculo^>^ cc);
+		double distanciaTotal(figuraCorte^ listImprimir);
 	};
 }

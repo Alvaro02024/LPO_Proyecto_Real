@@ -256,7 +256,7 @@ namespace Sview {
 			material^ objNuevoMaterial = matCont->asignarMaterial(NuevoMaterial);
 
 			//Las funciones de asignación asumen que el nombre de diseño es el mismo que el nombre de cada objeto que contrine sus listas
-			int par;
+			int par=0;
 
 			corteLineaController^ licControl = gcnew corteLineaController();
 			List<String^>^ DatosLCasociadosFC = licControl->DatosCreacionObjetosLC();

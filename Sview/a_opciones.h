@@ -2,6 +2,8 @@
 #include "a_mantenimiento_Codigo.h"
 #include "a_mantenimiento_Posicion.h"
 #include "a_historial.h"
+#include "a_operacion_ImprimirFigura.h"
+#include "a_operacion_ImprimirManual.h"
 
 namespace Sview {
 
@@ -217,6 +219,7 @@ namespace Sview {
 	}
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { //impresion FC
+
 	}
 
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) { //impresion manual

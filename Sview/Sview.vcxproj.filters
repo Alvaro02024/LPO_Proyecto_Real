@@ -72,6 +72,18 @@
     <ClCompile Include="a_reporte_UsosxUsuario.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="a_operacion_ImprimirFigura.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="b_operacion_ImprimirFigura.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="a_operacion_ImprimirManual.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="a_operacion_ImprimirFigura_Seleccion.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="c_logeo.h">
@@ -126,6 +138,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="a_reporte_UsosxUsuario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="a_operacion_ImprimirFigura.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="b_operacion_ImprimirFigura.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="a_operacion_ImprimirManual.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="a_operacion_ImprimirFigura_Seleccion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -29,7 +29,7 @@ List<figuraCorte^>^ figuraController::buscarFiguraxCodigo(int codigoBuscar) {
 		materialController^ matControl = gcnew materialController();
 		material^ objMaterial = matControl->asignarMaterial(materialDiseño);
 
-		int par;
+		int par = 0;
 
 		corteLineaController^ licControl = gcnew corteLineaController();
 		List<String^>^ DatosLCasociadosFC = licControl->DatosCreacionObjetosLC();
@@ -68,7 +68,7 @@ figuraCorte^ figuraController::buscar1FiguraxCodigo(int codigoComp) {
 		materialController^ matControl = gcnew materialController();
 		material^ objMaterial = matControl->asignarMaterial(materialDiseño);
 
-		int par;
+		int par = 0;
 
 		corteLineaController^ licControl = gcnew corteLineaController();
 		List<String^>^ DatosLCasociadosFC = licControl->DatosCreacionObjetosLC();
@@ -128,7 +128,7 @@ List<figuraCorte^>^ figuraController::buscarFiguraxALL() {
 		materialController^ matControl = gcnew materialController();
 		material^ objMaterial = matControl->asignarMaterial(materialDiseño);
 
-		int par;
+		int par=0;
 
 		corteLineaController^ licControl = gcnew corteLineaController();
 		List<String^>^ DatosLCasociadosFC = licControl->DatosCreacionObjetosLC();
@@ -179,4 +179,14 @@ void figuraController::agregarNuevaFiguraCorte(int b_codigo, String^ b_diseño, S
 	figuraCorte^ objCorte = gcnew figuraCorte(b_codigo, b_diseño, b_autor, b_fecha, b_mat, cl, cc);
 	listFiguraCorte->Add(objCorte);
 	escribirArchivo(listFiguraCorte);
+}
+
+double figuraController::distanciaTotal(figuraCorte^ listImprimir) {
+	double distancia = 0;
+	figuraController^ Contr = gcnew figuraController();
+	List<corteLinea^>^ listCortes = listImprimir->getListCorteLinea();
+	for (int i = 0; i < listCortes->Count; i++) {
+		distancia = distancia + listCortes[i]->getDistancia();
+	}
+	return(distancia);
 }

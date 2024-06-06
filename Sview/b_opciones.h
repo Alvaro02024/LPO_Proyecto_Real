@@ -1,5 +1,6 @@
 #pragma once
-#include"b_mantenimiento_Codigo.h"
+#include "b_mantenimiento_Codigo.h"
+#include"b_operacion_ImprimirFigura.h"
 
 namespace Sview {
 
@@ -205,6 +206,8 @@ namespace Sview {
 		usuario^ objUsuarioRegistrado = userController->buscarUsuarioxUser(user);
 		int diasRestantesUser = objUsuarioRegistrado->getDiasRestantes();
 		int numUsos = objUsuarioRegistrado->getNumUsos();
+		int codigoUsuario = objUsuarioRegistrado->getCodigo();
+
 
 		licencia^ licenciaUSER = objUsuarioRegistrado->getObjLicencia();
 		int usosMAX = licenciaUSER->getNumUsuarios();
@@ -214,6 +217,8 @@ namespace Sview {
 			MessageBox::Show("Su licencia no permite más usos de la máquina por favor revise la cuenta asociada al correo: \n" + correo);
 		}
 		else {
+			b_operacion_ImprimirFigura^ ventanImpresion = gcnew b_operacion_ImprimirFigura(0, codigoUsuario);
+			ventanImpresion->ShowDialog();
 
 		}
 	}
