@@ -131,6 +131,14 @@ void posicionController::actualizarPosicion(int codigo, int x, int y, int z) {
 	}
 	escribirPosicion(lista);
 }
+void posicionController::escribirImpresionPosicion(List<posicion^>^ listaposiciones) {
+	array<String^>^ lineaArchivo = gcnew array<String^>(listaposiciones->Count);
+	for (int i = 0; i < listaposiciones->Count; i++) {
+		posicion^ Npos = listaposiciones[i];
+		lineaArchivo[i] = Convert::ToString(Npos->getEjeX()) + ";" + Convert::ToString(Npos->getEjeY()) + ";" + Convert::ToString(Npos->getEjeZ());
+	}
+	File::WriteAllLines("ImprimiendoPosiciones.txt", lineaArchivo);
+}
 void posicionController::escribirPosicion(List<posicion^>^ listaposiciones) {
 	array<String^>^ lineaArchivo = gcnew array<String^>(listaposiciones->Count);
 	for (int i = 0; i < listaposiciones->Count;i++) {

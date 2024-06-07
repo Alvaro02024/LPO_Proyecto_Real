@@ -253,6 +253,7 @@ namespace Sview {
 			this->button5->TabIndex = 3;
 			this->button5->Text = L"Verificar";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &b_operacion_ImprimirFigura::button5_Click);
 			// 
 			// groupBox4
 			// 
@@ -521,6 +522,35 @@ namespace Sview {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Botón imprimir
+		if ((this->textBox1->Text == "") || (this->textBox2->Text == "") || (this->textBox3->Text == "") || (this->textBox8->Text == "") || (this->textBox13->Text == "")) {
+			MessageBox::Show("Ingrese datos para el corte");
+		}
+		else {
+			String^ codigoFiguraImprimir = this->textBox8->Text;
+			figuraController^ figContr = gcnew figuraController();
+			figuraCorte^ figuraImprimir = figContr->buscar1FiguraxCodigo(Convert::ToInt32(codigoFiguraImprimir));
+			impresionController^ imprimirControlador = gcnew impresionController();
+			//imprimirControlador->textoImpresion();
+
+			int codigo = Convert::ToInt32(this->textBox7->Text);
+			String^ nombreImpreison = this->textBox2->Text;
+			String^ fecha = this->textBox3->Text;
+			String^ nombreAutor = this->textBox4->Text;
+
+			int ld1 = Convert::ToInt32(this->textBox5->Text);
+			int ld2 = Convert::ToInt32(this->textBox1->Text);
+			int ld3 = Convert::ToInt32(this->textBox6->Text);
+
+			int dim = ld1 * ld2 * ld3;
+
+
+			impresionFC^ objImpresion = gcnew impresionFC(codigo, nombreImpreison, fecha, nombreAutor, Convert::ToString(dim), Convert::ToInt32(codigoFiguraImprimir));
+			imprimirControlador->textoImpresion(objImpresion);
+
+			List<impresionFC^>^ listaImpresiones = imprimirControlador->TotalImpresiones();
+			listaImpresiones->Add(objImpresion);
+			imprimirControlador->guardarImpresion(listaImpresiones);
+		}
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Botón cancelar
@@ -588,6 +618,26 @@ private: System::Void b_operacion_ImprimirFigura_Load(System::Object^ sender, Sy
 	DateTime Hoy = DateTime::Now;
 	String^ hoyFormato = Hoy.ToString("dd//MM//yyyy");
 		this->textBox3->Text = hoyFormato;
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	//verificar que el codigo de la impresion no se repita
+	String^ cadenaComprar = this->textBox7->Text;
+	impresionController^ imContr = gcnew impresionController();
+	int esValido = imContr->repetido(Convert::ToInt32(cadenaComprar));
+	if (esValido) {
+		MessageBox::Show("Datos válidos");
+	}
+	else {
+		MessageBox::Show("Código no válido");
+		this->textBox1->Clear(); //(Y)
+		this->textBox2->Clear(); //nombre
+		//this->textBox3->Clear(); //fecah
+		//this->textBox4->Clear(); //autor
+		this->textBox5->Clear(); // (Z)
+		this->textBox6->Clear(); //(X)
+		this->textBox7->Clear(); //Codigo
+
+	}
 }
 };
 }

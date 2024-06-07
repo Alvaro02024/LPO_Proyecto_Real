@@ -10,8 +10,9 @@ namespace Scontroller {
 	public:
 		impresionController();
 		List<impresionFC^>^ TotalImpresiones();
-		void guardarImpresion(impresionFC^ obj);
-		void textoImpresion();
+		void guardarImpresion(List<impresionFC^>^ obj);
+		void textoImpresion(impresionFC^ obj1);
+		int repetido(int codigo);
 		
 	};
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "figuraCorte.h"
+
 
 using namespace System;
 
@@ -11,10 +11,10 @@ namespace Smodel {
 		String^ fechaImpresion;
 		String^ autor;
 		String^ tamañoMinMaterial;
-		figuraCorte^ objFiguraCorte;
+		int codigoFiguraCorte;
 	public:
 		impresionFC();
-		impresionFC(int codigo, String^ nombreImpresion, String^ fechaImpresion, String^ autor, String^ tamañoMinMaterial, figuraCorte^ objFiguraCorte);
+		impresionFC(int codigo, String^ nombreImpresion, String^ fechaImpresion, String^ autor, String^ tamañoMinMaterial, int codigoFiguraCorte);
 
 		int getCodigo();
 		void setCodigo(int codigo);
@@ -26,7 +26,7 @@ namespace Smodel {
 		void setAutor(String^ autor);
 		String^ getTamañoMinMaterial();
 		void setTamañoMinMaterial(String^ tamañoMinMaterial);
-		figuraCorte^ getObjFiguraCorte();
-		void setObjFiguraCorte(figuraCorte^ objFiguraCorte);
+		int getObjFiguraCorte();
+		void setObjFiguraCorte(int codigoFiguraCorte);
 	};
 }

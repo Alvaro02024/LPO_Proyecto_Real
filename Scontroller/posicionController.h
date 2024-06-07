@@ -16,6 +16,7 @@ namespace Scontroller {
 		posicion^ buscar1PosicionxCodigo(int codigo);
 		void actualizarPosicion(int codigo, int x, int y, int z);
 		void escribirPosicion(List<posicion^>^ listaposiciones);
+		void escribirImpresionPosicion(List<posicion^>^ listaposiciones);
 		void eliminarPosicion(int codigo);
 		void agregarPosicion(int codigo, int x, int y, int z);
 		
