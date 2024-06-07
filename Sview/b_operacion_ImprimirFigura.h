@@ -550,6 +550,12 @@ namespace Sview {
 			List<impresionFC^>^ listaImpresiones = imprimirControlador->TotalImpresiones();
 			listaImpresiones->Add(objImpresion);
 			imprimirControlador->guardarImpresion(listaImpresiones);
+
+			usuarioController^ usuController = gcnew usuarioController();
+			usuario^ usuarioSuma = usuController->buscarUsuarioxCodigo(this->codigoUsuario);
+			int num = (usuarioSuma->getNumUsos()) + 1;
+			usuarioSuma->setNumUsos(num);
+			
 		}
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {

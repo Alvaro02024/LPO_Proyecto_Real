@@ -32,7 +32,7 @@ List<posicion^>^ posicionController::asignarListaPosicionFigura(int codigo_linea
 		int ejeY = Convert::ToInt32(datos[2]);
 		int ejeZ = Convert::ToInt32(datos[3]);
 		
-		if ((codigo/1000) == codigoComparacion) { //LIMITE ASDFASDFASFASDF
+		if ((codigo/1000) == codigoComparacion) { //LIMITEdeNUMERODELINEASDECORTE
 			posicion^ objPosicion = gcnew posicion(codigo, ejeX, ejeY, ejeZ);
 			listaPosiciones->Add(objPosicion);
 		}
