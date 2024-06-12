@@ -241,12 +241,11 @@ namespace Sview {
 		int CodigoEditar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 		
 		usuarioController^ usuarioCont = gcnew usuarioController();
-		usuario^ objUsuarioRegistrado = usuarioCont->buscarUsuarioxUser(userRegistrado);
-		String^ userComparacion1 = objUsuarioRegistrado->getUser();
+		
 		figuraController^ fcController = gcnew figuraController();
 		figuraCorte^ objFiguraSeleccionada = fcController->buscar1FiguraxCodigo(CodigoEditar);
 		String^ userComparacion2 = objFiguraSeleccionada->getNombreAutor();
-		if (userComparacion1 == userComparacion2) {
+		if (userRegistrado != userComparacion2) {
 			MessageBox::Show("No puede editar figuras no creadas por Ud.");
 		}
 		else {

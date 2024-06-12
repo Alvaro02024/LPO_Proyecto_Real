@@ -1,5 +1,6 @@
 #pragma once
 #include "b_operacion_ImprimirFigura_Seleccion.h"
+#include "math.h"
 
 namespace Sview {
 
@@ -184,7 +185,7 @@ namespace Sview {
 			// textBox13
 			// 
 			this->textBox13->Enabled = false;
-			this->textBox13->Location = System::Drawing::Point(121, 90);
+			this->textBox13->Location = System::Drawing::Point(169, 90);
 			this->textBox13->Name = L"textBox13";
 			this->textBox13->Size = System::Drawing::Size(100, 20);
 			this->textBox13->TabIndex = 1;
@@ -192,7 +193,7 @@ namespace Sview {
 			// textBox12
 			// 
 			this->textBox12->Enabled = false;
-			this->textBox12->Location = System::Drawing::Point(121, 38);
+			this->textBox12->Location = System::Drawing::Point(169, 38);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(100, 20);
 			this->textBox12->TabIndex = 1;
@@ -200,7 +201,7 @@ namespace Sview {
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(17, 93);
+			this->label13->Location = System::Drawing::Point(34, 93);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(93, 13);
 			this->label13->TabIndex = 0;
@@ -211,9 +212,9 @@ namespace Sview {
 			this->label12->AutoSize = true;
 			this->label12->Location = System::Drawing::Point(25, 41);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(90, 13);
+			this->label12->Size = System::Drawing::Size(107, 13);
 			this->label12->TabIndex = 0;
-			this->label12->Text = L"Tiempo estimado:";
+			this->label12->Text = L"Tiempo estimado (s) :";
 			// 
 			// groupBox2
 			// 
@@ -555,6 +556,9 @@ namespace Sview {
 			usuario^ usuarioSuma = usuController->buscarUsuarioxCodigo(this->codigoUsuario);
 			int num = (usuarioSuma->getNumUsos()) + 1;
 			usuarioSuma->setNumUsos(num);
+
+			MessageBox::Show("Orden de impresión añadida correctamente. \n" + "Espere a su impresión");
+			this->Close();
 			
 		}
 	}
@@ -603,7 +607,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	double distancia = fgContorller->distanciaTotal(objFC);
 	double velocidad = objMat->getVelocidadCorte();
-	double tiempo = distancia / velocidad;
+	int tiempo = ceil(distancia / velocidad);
 	this->textBox12->Text = Convert::ToString(tiempo);
 
 	List<corteLinea^>^ lista1 = objFC->getListCorteLinea();

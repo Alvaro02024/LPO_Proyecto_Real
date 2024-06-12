@@ -45,6 +45,9 @@
     <ClInclude Include="impresionController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="bReporteController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="administradorController.cpp">
@@ -75,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="impresionController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bReporteController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

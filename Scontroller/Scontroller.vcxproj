@@ -119,6 +119,7 @@
   <ItemGroup>
     <ClInclude Include="administradorController.h" />
     <ClInclude Include="aReporteController.h" />
+    <ClInclude Include="bReporteController.h" />
     <ClInclude Include="corteCirculoController.h" />
     <ClInclude Include="corteLineaController.h" />
     <ClInclude Include="figuraController.h" />
@@ -131,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="administradorController.cpp" />
     <ClCompile Include="aReporteController.cpp" />
+    <ClCompile Include="bReporteController.cpp" />
     <ClCompile Include="corteCirculoController.cpp" />
     <ClCompile Include="corteLineaController.cpp" />
     <ClCompile Include="figuraController.cpp" />

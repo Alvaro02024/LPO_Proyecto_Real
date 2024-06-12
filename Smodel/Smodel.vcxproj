@@ -117,6 +117,7 @@
     <ClInclude Include="corteLinea.h" />
     <ClInclude Include="estadoMaquina.h" />
     <ClInclude Include="figuraCorte.h" />
+    <ClInclude Include="figuraCortexUSo.h" />
     <ClInclude Include="impresionFC.h" />
     <ClInclude Include="licencia.h" />
     <ClInclude Include="material.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="corteLinea.cpp" />
     <ClCompile Include="estadoMaquina.cpp" />
     <ClCompile Include="figuraCorte.cpp" />
+    <ClCompile Include="figuraCortexUSo.cpp" />
     <ClCompile Include="impresionFC.cpp" />
     <ClCompile Include="licencia.cpp" />
     <ClCompile Include="material.cpp" />

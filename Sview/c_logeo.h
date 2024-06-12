@@ -206,8 +206,19 @@ namespace Sview {
 				AdministradorOpciones->ShowDialog();
 			}
 			else if (esUser) {
-				b_opciones^ UsuarioOpciones = gcnew b_opciones(codigo, new_user);
-				UsuarioOpciones->ShowDialog();
+				int diasR = 1;
+				usuarioController^ usuarioCC = gcnew usuarioController();
+				usuario^ Loge = usuarioCC->buscarUsuarioxUser(new_user);
+				diasR = Loge->getDiasRestantes();
+				String^ contacto = Loge->getContacto();
+				if (diasR <= 0) {
+					MessageBox::Show("La licencia de su cuenta ha caducado \n" + "Revise su correo: \n" + contacto);
+				}
+				else {
+					b_opciones^ UsuarioOpciones = gcnew b_opciones(codigo, new_user);
+					UsuarioOpciones->ShowDialog();
+				}
+				
 			}
 			else {
 				MessageBox::Show("Creedenciales no válidas");
