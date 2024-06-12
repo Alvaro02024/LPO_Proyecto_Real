@@ -180,3 +180,22 @@ void usuarioController::agregarUsuario(int codidgo, String^ user, String^ cont, 
 	ListaUsuarioActual->Add(objUsuario1);
 	escribirArchivoUser(ListaUsuarioActual);
 }
+
+int usuarioController::validacionCodifo(int coddd) {
+	int validacion = 1;
+	List<usuario^>^ listaUsuarios = gcnew List<usuario^>();
+	array<String^>^ lineas = File::ReadAllLines("usuario_cuentas.txt");
+	String^ separadores = ";";
+	for each (String ^ datoUsu in lineas) {
+		array<String^>^ datos = datoUsu->Split(separadores->ToCharArray());
+		int codigo = Convert::ToInt32(datos[0]);
+		
+		
+		if (codigo == coddd) {
+			validacion = 0;
+			break;
+		}
+
+	}
+	return (validacion);
+}

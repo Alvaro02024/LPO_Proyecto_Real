@@ -247,9 +247,14 @@ namespace Sview {
 		}
 		else {
 			usuarioController^ controladorUsuario = gcnew usuarioController();
-			controladorUsuario->agregarUsuario(codigo, user, pass, contacto, numUsos);
-			MessageBox::Show("Usuario creado correctamente");
-			this->Close();
+			
+			
+				controladorUsuario->actualizarUsuario(codigo, user, pass, contacto, numUsos);
+				MessageBox::Show("Datos editados correctamente");
+				this->Close();
+			
+			
+			
 		}
 
 

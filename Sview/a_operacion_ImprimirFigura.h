@@ -1,5 +1,6 @@
 #pragma once
 #include "a_operacion_ImprimirFigura_Seleccion.h"
+#include "math.h"
 
 namespace Sview {
 
@@ -147,7 +148,7 @@ namespace Sview {
 			// textBox13
 			// 
 			this->textBox13->Enabled = false;
-			this->textBox13->Location = System::Drawing::Point(121, 90);
+			this->textBox13->Location = System::Drawing::Point(133, 90);
 			this->textBox13->Name = L"textBox13";
 			this->textBox13->Size = System::Drawing::Size(100, 20);
 			this->textBox13->TabIndex = 1;
@@ -155,7 +156,7 @@ namespace Sview {
 			// textBox12
 			// 
 			this->textBox12->Enabled = false;
-			this->textBox12->Location = System::Drawing::Point(121, 38);
+			this->textBox12->Location = System::Drawing::Point(133, 38);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(100, 20);
 			this->textBox12->TabIndex = 1;
@@ -172,11 +173,11 @@ namespace Sview {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(25, 41);
+			this->label12->Location = System::Drawing::Point(8, 41);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(90, 13);
+			this->label12->Size = System::Drawing::Size(107, 13);
 			this->label12->TabIndex = 0;
-			this->label12->Text = L"Tiempo estimado:";
+			this->label12->Text = L"Tiempo estimado (s) :";
 			// 
 			// groupBox3
 			// 
@@ -316,7 +317,7 @@ namespace Sview {
 			this->groupBox4->Size = System::Drawing::Size(186, 140);
 			this->groupBox4->TabIndex = 2;
 			this->groupBox4->TabStop = false;
-			this->groupBox4->Text = L"Dimensiones Material:";
+			this->groupBox4->Text = L"Dimensiones Material (mm) :";
 			// 
 			// textBox5
 			// 
@@ -527,7 +528,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	double distancia = fgContorller->distanciaTotal(objFC);
 	double velocidad = objMat->getVelocidadCorte();
-	double tiempo = distancia / velocidad;
+	int tiempo = ceil(distancia / velocidad);
 	this->textBox12->Text = Convert::ToString(tiempo);
 
 	List<corteLinea^>^ lista1 = objFC->getListCorteLinea();
@@ -583,6 +584,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		List<impresionFC^>^ listaImpresiones = imprimirControlador->TotalImpresiones();
 		listaImpresiones->Add(objImpresion);
 		imprimirControlador->guardarImpresion(listaImpresiones);
+		MessageBox::Show("Orden de impresión añadida correctamente. \n" + "Espere a su impresión");
+		this->Close();
 	}
 	
 }

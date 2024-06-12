@@ -18,6 +18,7 @@ namespace Scontroller {
 		void escribirArchivoUser(List<usuario^>^ ListaUsuarios);
 		void eliminarUsuario(int cod);
 		void agregarUsuario(int codidgo, String^ user, String^ cont, String^ contacto, int numUsos);
+		int validacionCodifo(int coddd);
 
 
 	};

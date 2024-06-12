@@ -235,7 +235,7 @@ namespace Sview {
 		int codigo = Convert::ToInt32(this->textBox1->Text);
 		String^ diseño = this->textBox2->Text;
 		String^ autor = this->textBox3->Text;
-		String^ fecha = this->dateTimePicker1->Text;
+		String^ fecha = Convert::ToString(this->dateTimePicker1->Text);
 		String^ material = this->comboBox1->Text;
 		if ((Convert::ToString(codigo) == "") || (diseño == "") || (autor == "") || (fecha == "")) {
 			MessageBox::Show("Ingrese todos los datos");

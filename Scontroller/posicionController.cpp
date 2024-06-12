@@ -165,3 +165,28 @@ void posicionController::agregarPosicion(int codigo, int x, int y, int z) {
 
 }
 
+int posicionController::CodigoRepetido(int codigoCOMP) {
+	int valido = 1;
+	List<posicion^>^ listaPosiciones = gcnew List<posicion^>();
+	array<String^>^ lineas = File::ReadAllLines("posiciones.txt");
+	String^ separadores = ";";
+	for each (String ^ posData in lineas) {
+		array<String^>^ datos = posData->Split(separadores->ToCharArray());
+		//for each sigue leyendo más lineas de las que tienen datos en el archivo
+		if ((posData == "") || (datos[0] == "") || (datos[1] == "") || (datos[2] == "") || (datos[3] == "")) {
+			break;
+		}
+		int codigo = Convert::ToInt32(datos[0]);
+		int ejex = Convert::ToInt32(datos[1]);
+		int ejey = Convert::ToInt32(datos[2]);
+		int ejez = Convert::ToInt32(datos[3]);
+
+		if (codigo == codigoCOMP) {
+			valido = 0;
+			break;
+		}
+	}
+	return valido;
+	
+}
+

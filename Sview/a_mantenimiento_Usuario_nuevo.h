@@ -222,6 +222,7 @@ namespace Sview {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Botón crear
+		int validacion = 1;
 		int codigo = Convert::ToInt32(this->textBox1->Text);
 		String^ user = this->textBox2->Text;
 		String^ pass = this->textBox3->Text;
@@ -233,9 +234,15 @@ namespace Sview {
 		}
 		else {
 			usuarioController^ controladorUsuario = gcnew usuarioController();
-			controladorUsuario->agregarUsuario(codigo, user, pass, contacto, numUsos);
-			MessageBox::Show("Usuario creado correctamente");
-			this->Close();
+			validacion = controladorUsuario->validacionCodifo(codigo);
+			if (validacion) {
+				controladorUsuario->agregarUsuario(codigo, user, pass, contacto, numUsos);
+				MessageBox::Show("Usuario creado correctamente");
+				this->Close();
+			}
+			else {
+				MessageBox::Show("El codigo ha registrar ya se encuentra dentro de la base de datos. \n" + "Intente de nuevo con otro código");
+			}
 		}
 	}
 };

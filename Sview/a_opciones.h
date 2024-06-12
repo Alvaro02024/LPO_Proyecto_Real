@@ -227,6 +227,7 @@ namespace Sview {
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) { //impresion manual
 	}
 	private: System::Void a_opciones_Load(System::Object^ sender, System::EventArgs^ e) { 
+	
 		//Carga de pantalla
 		/*figuraController^ figuraControlador = gcnew figuraController();
 		corteLineaController^ LCControlador = gcnew corteLineaController();

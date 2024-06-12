@@ -19,6 +19,7 @@ namespace Scontroller {
 		void escribirImpresionPosicion(List<posicion^>^ listaposiciones);
 		void eliminarPosicion(int codigo);
 		void agregarPosicion(int codigo, int x, int y, int z);
+		int CodigoRepetido(int codigo);
 		
 	};
 }

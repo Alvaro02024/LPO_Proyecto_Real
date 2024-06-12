@@ -186,7 +186,7 @@ namespace Sview {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(281, 303);
+			this->ClientSize = System::Drawing::Size(298, 335);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -202,6 +202,7 @@ namespace Sview {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//ACeptar
+		int validacion = 1;
 		int codigo = Convert::ToInt32(this->textBox1->Text);
 		int ejex = Convert::ToInt32(this->textBox2->Text);
 		int ejey = Convert::ToInt32(this->textBox3->Text);
@@ -211,9 +212,16 @@ namespace Sview {
 			MessageBox::Show("Complete todos los datos");
 		}
 		else {
-			posC->agregarPosicion(codigo, ejex, ejey, ejez);
-			MessageBox::Show("Posición creado correctamente");
-			this->Close();
+			validacion = posC->CodigoRepetido(codigo);
+			if (validacion) {
+				posC->agregarPosicion(codigo, ejex, ejey, ejez);
+				MessageBox::Show("Posición creada correctamente");
+				this->Close();
+			}
+			else {
+				MessageBox::Show("El código a implementar ya se encuentra en la base de datos, intente con otro");
+			}
+			
 		}
 		
 	}
