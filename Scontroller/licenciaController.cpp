@@ -11,7 +11,7 @@ licenciaController::licenciaController() {
 
 licencia^ licenciaController::asignarLicencia(int codigo_user) {
 	int criterio = codigo_user / 100;
-	licencia^ objLicencia = buscarLicenciaxCodigo(codigo_user);
+	licencia^ objLicencia = buscarLicenciaxCodigo(criterio);
 	return (objLicencia);
 }
 
@@ -27,7 +27,7 @@ licencia^ licenciaController::buscarLicenciaxCodigo(int codigo_lic) {
 		String^ fechaCompra = datos[3];
 		String^ fechaVencimiento = datos[4];
 
-		if (codigo = codigo_lic) {
+		if (codigo == codigo_lic) {
 			objLC = gcnew licencia(codigo, tipo, numUsuarios, fechaCompra, fechaVencimiento);
 			break;
 		}

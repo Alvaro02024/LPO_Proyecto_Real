@@ -74,7 +74,7 @@ usuario^ usuarioController::buscarUsuarioxUser(String^ b_user) {
 		int diasRestantes = lcControl->diasRestantesLicencia(diaVencimiento);
 
 
-		if (user = b_user) {
+		if (user == b_user) {
 		objUsuario = gcnew usuario(codigo, user, contraseña, tipoLicencia, diasRestantes, contacto, numUsos, objLicencia);
 		break;
 		}
@@ -100,9 +100,10 @@ List<usuario^>^ usuarioController::buscarListaUsuarioxUser(String^ c_user) {
 		String^ tipoLicencia = objLicencia->getTipo();
 		String^ diaVencimiento = objLicencia->getFechaVencimiento();
 		int diasRestantes = lcControl->diasRestantesLicencia(diaVencimiento);
+		
 
 
-		if (user->Contains(c_user)) {
+		if (user == c_user) {
 			usuario^ objUsuarios = gcnew usuario(codigo, user, contraseña, tipoLicencia, diasRestantes, contacto, numUsos, objLicencia);
 			listaUsuarios->Add(objUsuarios);
 		}

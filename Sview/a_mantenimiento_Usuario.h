@@ -268,7 +268,7 @@ namespace Sview {
 		   filaGrilla[1] = objU->getUser();
 		   filaGrilla[2] = objU->getTipoLicencia();
 		   filaGrilla[3] =	Convert::ToString(objU->getDiasRestantes());
-		   filaGrilla[4] = objU->getTipoLicencia();
+		   filaGrilla[4] = objU->getContacto();
 		   filaGrilla[5] = Convert::ToString(objU->getNumUsos());
 		   this->dataGridView1->Rows->Add(filaGrilla);
 		}
