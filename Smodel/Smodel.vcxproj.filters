@@ -48,7 +48,7 @@
     <ClInclude Include="numeroUsosxUsuario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="figuraCortexUSo.h">
+    <ClInclude Include="ImpresionesxFiguraCorte.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -86,7 +86,7 @@
     <ClCompile Include="numUsosxUsuario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="figuraCortexUSo.cpp">
+    <ClCompile Include="ImpresionesxFiguraCorte.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

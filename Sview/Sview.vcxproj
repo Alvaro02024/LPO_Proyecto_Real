@@ -135,7 +135,7 @@
     <ClCompile Include="b_opciones.cpp" />
     <ClCompile Include="b_operacion_ImprimirFigura.cpp" />
     <ClCompile Include="b_operacion_ImprimirFigura_Seleccion.cpp" />
-    <ClCompile Include="b_reporte_UsosxDia.cpp" />
+    <ClCompile Include="b_Reporte_ImpresionesxFiguraCorte.cpp" />
     <ClCompile Include="c_logeo.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -219,7 +219,7 @@
     <ClInclude Include="b_operacion_ImprimirFigura_Seleccion.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="b_reporte_UsosxDia.h">
+    <ClInclude Include="b_Reporte_ImpresionesxFiguraCorte.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="c_logeo.h">
@@ -286,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="b_operacion_ImprimirFigura_Seleccion.resx">
       <DependentUpon>b_operacion_ImprimirFigura_Seleccion.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="b_Reporte_ImpresionesxFiguraCorte.resx">
+      <DependentUpon>b_Reporte_ImpresionesxFiguraCorte.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="c_logeo.resx">
       <DependentUpon>c_logeo.h</DependentUpon>

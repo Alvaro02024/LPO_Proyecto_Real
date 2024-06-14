@@ -1,6 +1,8 @@
 #pragma once
 #include "b_mantenimiento_Codigo.h"
-#include"b_operacion_ImprimirFigura.h"
+#include "b_operacion_ImprimirFigura.h"
+#include "b_Reporte_ImpresionesxFiguraCorte.h"
+
 
 namespace Sview {
 
@@ -196,6 +198,8 @@ namespace Sview {
 		this->Close();
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //BOTÓN HISTORIAL
+		b_Reporte_ImpresionesxFiguraCorte^ ventenaReporte = gcnew b_Reporte_ImpresionesxFiguraCorte(user);
+		ventenaReporte->ShowDialog();
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //BOTÓN MANTENIMIENTO FIGURAS DE CORTE
 		b_mantenimiento_Codigo^ mantenimientoUser = gcnew b_mantenimiento_Codigo(user);

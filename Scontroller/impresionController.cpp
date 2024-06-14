@@ -91,3 +91,19 @@ int impresionController::repetido(int codigo) {
 	return valido;
 }
 
+int impresionController::numeroImpresionesxUser(String^ user) {
+	int NumImp = 0;
+	impresionController^ impController = gcnew impresionController();
+	List<impresionFC^>^ listaimpresiones = impController->TotalImpresiones();
+	for (int i = 0; i < listaimpresiones->Count; i++) {
+		if (Convert::ToString(listaimpresiones[i]->getCodigo()) == "") {
+			break;
+		}
+		String^ autor = listaimpresiones[i]->getAutor();
+		if (autor == user) {
+			NumImp = NumImp + 1;
+		}
+	}
+	return NumImp;
+}
+

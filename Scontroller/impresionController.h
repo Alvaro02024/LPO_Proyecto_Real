@@ -13,6 +13,7 @@ namespace Scontroller {
 		void guardarImpresion(List<impresionFC^>^ obj);
 		void textoImpresion(impresionFC^ obj1);
 		int repetido(int codigo);
+		int numeroImpresionesxUser(String^ user);
 		
 	};
 }

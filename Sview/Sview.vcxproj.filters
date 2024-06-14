@@ -51,9 +51,6 @@
     <ClCompile Include="a_mantenimiento_Usuario.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="b_reporte_UsosxDia.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="a_mantenimiento_Usuario_nuevo.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
@@ -85,6 +82,9 @@
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="b_operacion_ImprimirFigura_Seleccion.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="b_Reporte_ImpresionesxFiguraCorte.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,9 +122,6 @@
     <ClInclude Include="a_mantenimiento_Usuario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="b_reporte_UsosxDia.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="a_mantenimiento_Usuario_nuevo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -156,6 +153,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="b_operacion_ImprimirFigura_Seleccion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="b_Reporte_ImpresionesxFiguraCorte.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
