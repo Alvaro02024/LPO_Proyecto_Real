@@ -228,6 +228,15 @@ namespace Sview {
 		String^ pass = this->textBox3->Text;
 		String^ contacto = this->textBox4->Text;
 		int numUsos = Convert::ToInt32(this->textBox5->Text);
+
+		int codigoLicencia = codigo / 100;
+
+		licenciaController^ licController = gcnew licenciaController();
+		licencia^ objLicencia = licController->BD_buscarLicenciaxCodigo(codigoLicencia);
+
+		String^ tipoLicencia = objLicencia->getTipo();
+		String^ fechaVencimiento = objLicencia->getFechaVencimiento();
+		int diaRes = licController->diasRestantesLicencia(fechaVencimiento);
 						
 		if ((this->textBox1->Text == "")||(user == "") || (pass == "") || (contacto == "") || (this->textBox5->Text == "")) {
 			MessageBox::Show("Complete todos los campos");
@@ -236,7 +245,8 @@ namespace Sview {
 			usuarioController^ controladorUsuario = gcnew usuarioController();
 			validacion = controladorUsuario->validacionCodifo(codigo);
 			if (validacion) {
-				controladorUsuario->agregarUsuario(codigo, user, pass, contacto, numUsos);
+				//controladorUsuario->agregarUsuario(codigo, user, pass, contacto, numUsos);
+				controladorUsuario->BD_agregarUsuario(codigo, user, pass, tipoLicencia, diaRes, contacto, numUsos, codigoLicencia);
 				MessageBox::Show("Usuario creado correctamente");
 				this->Close();
 			}

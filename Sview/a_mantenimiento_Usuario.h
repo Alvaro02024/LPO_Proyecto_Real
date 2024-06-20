@@ -225,12 +225,14 @@ namespace Sview {
 		List<usuario^>^ listaUsuarios = gcnew List<usuario^>();
 		List<usuario^>^ listaUsuarios2 = gcnew List<usuario^>();
 		if (userAnalizarMantenimiento == "") {
-			listaUsuarios = userController->buscarTotalUsuarios();
+			//listaUsuarios = userController->buscarTotalUsuarios();
+			listaUsuarios = userController->BD_buscarTotalUsuarios();
 			MostrarGrilla(listaUsuarios);
 			
 		}
 		else {
-			listaUsuarios2 = userController->buscarListaUsuarioxUser(userAnalizarMantenimiento);
+			//listaUsuarios2 = userController->buscarListaUsuarioxUser(userAnalizarMantenimiento);
+			listaUsuarios2 = userController->BD_buscarListaUsuarioxUser(userAnalizarMantenimiento);
 			MostrarGrilla(listaUsuarios2);
 		}
 		
