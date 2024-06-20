@@ -196,8 +196,9 @@ namespace Sview {
 			administradorController^ objAdminController = gcnew administradorController();
 			usuarioController^ objUserController = gcnew usuarioController();
 
-			int esAdmin = objAdminController->verificarCuentaAdmin(new_user, new_cont);
-			int esUser = objUserController->verificarCuentaUser(new_user, new_cont);
+			//Verificacion con BD
+			int esAdmin = objAdminController->BD_verificarCuentaAdmin(new_user, new_cont);
+			int esUser = objUserController->BD_verificarCuentaUser(new_user, new_cont);
 
 			int codigo = 0;
 
@@ -208,7 +209,7 @@ namespace Sview {
 			else if (esUser) {
 				int diasR = 1;
 				usuarioController^ usuarioCC = gcnew usuarioController();
-				usuario^ Loge = usuarioCC->buscarUsuarioxUser(new_user);
+				usuario^ Loge = usuarioCC->BD_buscarUsuarioxUser(new_user);
 				diasR = Loge->getDiasRestantes();
 				String^ contacto = Loge->getContacto();
 				if (diasR <= 0) {

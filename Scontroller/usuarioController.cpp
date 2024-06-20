@@ -37,6 +37,25 @@ int usuarioController::verificarCuentaUser(String^ u_user, String^ u_cont) {
 	return(confirmar);
 }
 
+int usuarioController::BD_verificarCuentaUser(String^ User, String^ Cont) {
+	int confirmar = 0;
+	abrirConexion();
+	//La sentencia es el comando que realiza acciones en la base de datos
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	//Indico que la sentencia debe ser ejecutada en la base de datos a conectarse
+	objSentencia->Connection = this->objConexion;
+	//Sentencia a ejecutar
+	objSentencia->CommandText = "select* from usuario where IDuser= '" + User+"'";
+	//Sentencia es un select -> se ejecuta con un execute reader que devuelve la info de la BD
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		confirmar = 1;
+	}
+	cerrarConexion();
+
+	return confirmar;
+}
+
 usuario^ usuarioController::buscarUsuarioxCodigo(int codigoBuscar) {
 	usuario^ objUsuario;
 	array<String^>^ lineas = File::ReadAllLines("usuario_cuentas.txt");
@@ -90,6 +109,44 @@ usuario^ usuarioController::buscarUsuarioxUser(String^ b_user) {
 		break;
 		}
 	}
+	return (objUsuario);
+}
+
+usuario^ usuarioController::BD_buscarUsuarioxUser(String^ user) {
+	usuario^ objUsuario = nullptr;
+	
+	abrirConexion();
+	//La sentencia es el comando que realiza acciones en la base de datos
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	//Indico que la sentencia debe ser ejecutada en la base de datos a conectarse
+	objSentencia->Connection = this->objConexion;
+	//Sentencia a ejecutar
+	objSentencia->CommandText = "select* from usuario where IDuser= '" + user + "'";
+	//Sentencia es un select -> se ejecuta con un execute reader que devuelve la info de la BD
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		String^ user = safe_cast<String^>(objData[1]);
+		String^ contraseña = safe_cast<String^>(objData[2]);
+		String^ tipoLicencia = safe_cast<String^>(objData[3]);
+		//int diasRestantes = safe_cast<int>(objData[4]);
+		String^ contacto = safe_cast<String^>(objData[5]);
+		int numUsos = safe_cast<int>(objData[6]);
+		//Se debe implementar una función para buscar Licencia por codigo con BD para que sirva el usuario
+		int codigoLicencia = safe_cast<int>(objData[7]);
+
+		licenciaController^ lcControl = gcnew licenciaController();
+		licencia^ objLicencia = lcControl->BD_buscarLicenciaxCodigo(codigoLicencia);
+
+		String^ diaVencimiento = objLicencia->getFechaVencimiento();
+		int diasRestantes = lcControl->diasRestantesLicencia(diaVencimiento);
+
+		//Los días restantes no se actualizan todavía en la tabla de datos
+
+		objUsuario = gcnew usuario(codigo, user, contraseña, tipoLicencia, diasRestantes, contacto, numUsos, objLicencia);
+		
+	}
+	cerrarConexion();
 	return (objUsuario);
 }
 
@@ -235,6 +292,20 @@ void usuarioController::actualizarUsuario(int codigo_user, String^ user, String^
 	}
 	escribirArchivoUser(listaUsuarios);
 }
+
+void usuarioController::BD_actualizarUsuario(int codigouser, String^ user, String^ cont, String^ contacto, int numUsos) {
+	abrirConexion();
+	//La sentencia es el comando que realiza acciones en la base de datos
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	//Indico que la sentencia debe ser ejecutada en la base de datos a conectarse
+	objSentencia->Connection = this->objConexion;
+	//Sentencia a ejecutar
+	objSentencia->CommandText = "update usuario " +
+		"set IDuser = '"+user+"', contraseña = '"+cont+"', contacto = '"+contacto+"', numUsos = "+numUsos + 
+		" where codigo = codigouser";
+	cerrarConexion();
+}
+
 void usuarioController::escribirArchivoUser(List<usuario^>^ ListaUsuarios) {
 	array<String^>^ lineaArchivo = gcnew array<String^>(ListaUsuarios->Count);
 	for (int i = 0; i < ListaUsuarios->Count;i++) {
@@ -255,7 +326,15 @@ void usuarioController::eliminarUsuario(int cod) {
 }
 
 void usuarioController::BD_eliminarUsuario(int cod) {
-
+	abrirConexion();
+	//La sentencia es el comando que realiza acciones en la base de datos
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	//Indico que la sentencia debe ser ejecutada en la base de datos a conectarse
+	objSentencia->Connection = this->objConexion;
+	//Sentencia a ejecutar
+	objSentencia->CommandText = "delete from usuario where codigo = " + cod;
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
 }
 
 void usuarioController::agregarUsuario(int codidgo, String^ user, String^ cont, String^ contacto, int numUsos) {

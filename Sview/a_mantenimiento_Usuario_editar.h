@@ -248,8 +248,8 @@ namespace Sview {
 		else {
 			usuarioController^ controladorUsuario = gcnew usuarioController();
 			
-			
-				controladorUsuario->actualizarUsuario(codigo, user, pass, contacto, numUsos);
+				//Cambio a edicion en base de datos
+				controladorUsuario->BD_actualizarUsuario(codigo, user, pass, contacto, numUsos);
 				MessageBox::Show("Datos editados correctamente");
 				this->Close();
 			

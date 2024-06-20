@@ -18,13 +18,16 @@ namespace Scontroller {
 			void cerrarConexion();
 
 			int verificarCuentaUser(String^ User, String^ Cont);
+			int BD_verificarCuentaUser(String^ User, String^ Cont);
 			usuario^ buscarUsuarioxUser(String^ user);
+			usuario^ BD_buscarUsuarioxUser(String^ user);
 			usuario^ buscarUsuarioxCodigo(int codigoBuscar);
 			List<usuario^>^ buscarListaUsuarioxUser(String^ user);
 			List<usuario^>^ BD_buscarListaUsuarioxUser(String^ user);
 			List<usuario^>^ buscarTotalUsuarios();
 			List<usuario^>^ BD_buscarTotalUsuarios();
 			void actualizarUsuario(int codigouser, String^ user, String^ cont, String^ contacto, int numUsos);
+			void BD_actualizarUsuario(int codigouser, String^ user, String^ cont, String^ contacto, int numUsos);
 			void escribirArchivoUser(List<usuario^>^ ListaUsuarios);
 			void eliminarUsuario(int cod);
 			void BD_eliminarUsuario(int cod);

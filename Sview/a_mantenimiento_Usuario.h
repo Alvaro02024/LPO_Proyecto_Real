@@ -255,7 +255,7 @@ namespace Sview {
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; 
 		int CodigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 		usuarioController^ uController = gcnew usuarioController();
-		uController->eliminarUsuario(CodigoEliminar);
+		uController->BD_eliminarUsuario(CodigoEliminar); //cambio a el uso de BD
 		MessageBox::Show("Se ha eliminado correctamente el usuario: \n" + CodigoEliminar);
 		this->dataGridView1->Rows->Clear();
 	}
