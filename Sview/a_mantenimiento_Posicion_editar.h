@@ -218,7 +218,7 @@ namespace Sview {
 			MessageBox::Show("Complete todos los datos");
 		}
 		else {
-			posC->actualizarPosicion(codigo, ejex, ejey, ejez);
+			posC->BD_actualizarPosicion(codigo, ejex, ejey, ejez);//Cambio a función con base de datos
 			MessageBox::Show("Posición actualizada correctamente");
 			this->Close();
 		}

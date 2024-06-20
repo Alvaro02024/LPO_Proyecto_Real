@@ -212,9 +212,9 @@ namespace Sview {
 			MessageBox::Show("Complete todos los datos");
 		}
 		else {
-			validacion = posC->CodigoRepetido(codigo);
+			validacion = posC->BD_CodigoRepetido(codigo);
 			if (validacion) {
-				posC->agregarPosicion(codigo, ejex, ejey, ejez);
+				posC->BD_agregarPosicion(codigo, ejex, ejey, ejez);
 				MessageBox::Show("Posición creada correctamente");
 				this->Close();
 			}

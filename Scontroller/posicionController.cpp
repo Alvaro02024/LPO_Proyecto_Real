@@ -8,7 +8,18 @@ using namespace Smodel;
 using namespace System::Collections::Generic;
 
 posicionController::posicionController() {
+	this->objConexion = gcnew SqlConnection();
+}
 
+void posicionController::abrirConexion() {
+	//Paso1: establecer la cadena de conexion
+	this->objConexion->ConnectionString = "Server=bd20210963.cmy8r9euah5y.us-east-1.rds.amazonaws.com;DataBase=DatosProyecto;User id=admin;Password=Grupo11Proyecto";
+	//Paso2: abrir conexion
+	this->objConexion->Open();
+}
+
+void posicionController::cerrarConexion() {
+	this->objConexion->Close();
 }
 
 List<posicion^>^ posicionController::asignarListaPosicionFigura(int codigo_lineaCorte) {
@@ -76,6 +87,29 @@ List<posicion^>^ posicionController::buscarPosiciones() {
 	}
 	return(listaPosiciones);
 }
+
+List<posicion^>^ posicionController::BD_buscarPosiciones() {
+	posicion^ objPosicion = nullptr;
+	List<posicion^>^ listaPosiciones = gcnew List<posicion^>();
+	abrirConexion();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "select* from posiciones";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		int ejex = safe_cast<int>(objData[1]);
+		int ejey = safe_cast<int>(objData[2]);
+		int ejez = safe_cast<int>(objData[3]);
+
+		objPosicion = gcnew posicion(codigo, ejex, ejey, ejez);
+		listaPosiciones->Add(objPosicion);
+	}
+
+	cerrarConexion();
+	return listaPosiciones;
+}
+
 List<posicion^>^ posicionController::buscarPosicionxCodigo(int codigoB) {
 	List<posicion^>^ listaPosiciones = gcnew List<posicion^>();
 	array<String^>^ lineas = File::ReadAllLines("posiciones.txt");
@@ -97,6 +131,28 @@ List<posicion^>^ posicionController::buscarPosicionxCodigo(int codigoB) {
 		}
 	}
 	return(listaPosiciones);
+}
+
+List<posicion^>^ posicionController::BD_buscarPosicionxCodigo(int codigo) {
+	posicion^ objPosicion = nullptr;
+	List<posicion^>^ listaPosiciones = gcnew List<posicion^>();
+	abrirConexion();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "select* from posiciones where codigo like '"+codigo+"%'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		int ejex = safe_cast<int>(objData[1]);
+		int ejey = safe_cast<int>(objData[2]);
+		int ejez = safe_cast<int>(objData[3]);
+
+		objPosicion = gcnew posicion(codigo, ejex, ejey, ejez);
+		listaPosiciones->Add(objPosicion);
+	}
+
+	cerrarConexion();
+	return listaPosiciones;
 }
 
 posicion^ posicionController::buscar1PosicionxCodigo(int codigoB) {
@@ -131,6 +187,20 @@ void posicionController::actualizarPosicion(int codigo, int x, int y, int z) {
 	}
 	escribirPosicion(lista);
 }
+
+void posicionController::BD_actualizarPosicion(int codigo, int x, int y, int z) {
+	abrirConexion();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "update posiciones " +
+		"set ejeX= "+x+", + ejeY = "+y+", ejeZ = "+z +
+		" where codigo = " +  codigo;
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
+
+}
+
+
 void posicionController::escribirImpresionPosicion(List<posicion^>^ listaposiciones) {
 	array<String^>^ lineaArchivo = gcnew array<String^>(listaposiciones->Count);
 	for (int i = 0; i < listaposiciones->Count; i++) {
@@ -157,12 +227,39 @@ void posicionController::eliminarPosicion(int codigo) {
 	}
 	escribirPosicion(list);
 }
+
+void posicionController::BD_eliminarPosicion(int codigo) {
+	abrirConexion();
+	//La sentencia es el comando que realiza acciones en la base de datos
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	//Indico que la sentencia debe ser ejecutada en la base de datos a conectarse
+	objSentencia->Connection = this->objConexion;
+	//Sentencia a ejecutar
+	objSentencia->CommandText = "delete from posiciones where codigo = " + codigo;
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
+}
+
 void posicionController::agregarPosicion(int codigo, int x, int y, int z) {
 	List<posicion^>^ listaposicion = buscarPosiciones();
 	posicion^ objPosicion = gcnew posicion(codigo,x, y, z);
 	listaposicion->Add(objPosicion);
 	escribirPosicion(listaposicion);
 
+}
+
+void posicionController::BD_agregarPosicion(int codigo, int x, int y, int z) {
+	posicion^ objPosicion = nullptr;
+	abrirConexion();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	//Indico que la sentencia debe ser ejecutada en la base de datos a conectarse
+	objSentencia->Connection = this->objConexion;
+	//Sentencia a ejecutar
+	objSentencia->CommandText =
+		"insert into posiciones(codigo, ejeX, ejeY, ejeZ)" +
+		" values("+codigo+","+ x+","+ y+","+ z+")";
+	objSentencia->ExecuteNonQuery();
+	cerrarConexion();
 }
 
 int posicionController::CodigoRepetido(int codigoCOMP) {
@@ -188,5 +285,20 @@ int posicionController::CodigoRepetido(int codigoCOMP) {
 	}
 	return valido;
 	
+}
+
+int posicionController::BD_CodigoRepetido(int codigo) {
+	int valido = 1;
+	abrirConexion();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "select* from posiciones where codigo= "+codigo;
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		valido = 0;
+	}
+
+	cerrarConexion();
+	return valido;
 }
 

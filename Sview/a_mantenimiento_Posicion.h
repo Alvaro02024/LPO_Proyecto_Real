@@ -209,11 +209,11 @@ namespace Sview {
 		List<posicion^>^ lP1 = gcnew List<posicion^>();
 		List<posicion^>^ lP2 = gcnew List<posicion^>();
 		if (codigoB == "") {
-			lP1 = pContr->buscarPosiciones();
+			lP1 = pContr->BD_buscarPosiciones();//Cambio a función con base de datos
 			mostrarGrilla(lP1);
 		}
 		else {
-			lP2 = pContr->buscarPosicionxCodigo(Convert::ToInt32(codigoB));
+			lP2 = pContr->BD_buscarPosicionxCodigo(Convert::ToInt32(codigoB));//Cambio a función con base de datos
 			mostrarGrilla(lP2);
 		}
 
@@ -235,7 +235,7 @@ namespace Sview {
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index;
 		int CodigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
 		posicionController^ PP = gcnew posicionController();
-		PP->eliminarPosicion(CodigoEliminar);
+		PP->BD_eliminarPosicion(CodigoEliminar); //Cambio a función con base de datos
 		MessageBox::Show("Se ha eliminado correctamente la posición: \n" + CodigoEliminar);
 		this->dataGridView1->Rows->Clear();
 	}

@@ -302,7 +302,8 @@ void usuarioController::BD_actualizarUsuario(int codigouser, String^ user, Strin
 	//Sentencia a ejecutar
 	objSentencia->CommandText = "update usuario " +
 		"set IDuser = '"+user+"', contraseña = '"+cont+"', contacto = '"+contacto+"', numUsos = "+numUsos + 
-		" where codigo = codigouser";
+		" where codigo = " +codigouser;
+	objSentencia->ExecuteNonQuery();
 	cerrarConexion();
 }
 
