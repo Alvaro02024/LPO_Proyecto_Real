@@ -5,6 +5,9 @@ using namespace Smodel;
 using namespace System;
 using namespace System::IO;
 
+//La tabla de materiales presente en el DB no tiene asignada una primary key, al momento de tratar de cambiarlo sale un error por lo que se decidio trabajar 
+//sin la declaración de la primary key.
+
 materialController::materialController() {
 
 }

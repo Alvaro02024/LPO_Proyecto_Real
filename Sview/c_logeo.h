@@ -80,6 +80,8 @@ namespace Sview {
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"ISOCPEUR", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(36, 25);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(513, 106);
@@ -90,9 +92,11 @@ namespace Sview {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(195, 45);
+			this->label1->Font = (gcnew System::Drawing::Font(L"ISOCPEUR", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(134, 36);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(105, 13);
+			this->label1->Size = System::Drawing::Size(268, 37);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Sistema Control CNC";
 			// 
@@ -102,42 +106,48 @@ namespace Sview {
 			this->groupBox2->Controls->Add(this->textBox1);
 			this->groupBox2->Controls->Add(this->label3);
 			this->groupBox2->Controls->Add(this->label2);
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"ISOCPEUR", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->groupBox2->Location = System::Drawing::Point(36, 171);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(513, 204);
 			this->groupBox2->TabIndex = 0;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Ingerse sus creedenciales:";
+			this->groupBox2->Text = L"Ingrese sus creedenciales:";
 			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(224, 135);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
+			this->textBox2->Size = System::Drawing::Size(100, 23);
 			this->textBox2->TabIndex = 2;
 			// 
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(224, 58);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->Size = System::Drawing::Size(100, 23);
 			this->textBox1->TabIndex = 1;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(121, 138);
+			this->label3->Font = (gcnew System::Drawing::Font(L"ISOCPEUR", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(105, 134);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(64, 13);
+			this->label3->Size = System::Drawing::Size(98, 24);
 			this->label3->TabIndex = 0;
 			this->label3->Text = L"Contraseña:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(121, 61);
+			this->label2->Font = (gcnew System::Drawing::Font(L"ISOCPEUR", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(128, 57);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(46, 13);
+			this->label2->Size = System::Drawing::Size(70, 24);
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Usuario:";
 			// 
